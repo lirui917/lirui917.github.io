@@ -1,46 +1,55 @@
----
-layout: page
-description: "「离开世界之前 一切都是过程」"
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格示例</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left; /* 默认设置为居左 */
+            border: 1px solid #ddd;
+        }
+        .header-row {
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-align: center; /* 第一行内容居中 */
+        }
+    </style>
+</head>
+<body>
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {% if post.lang == 'en' %}
-                {{ post.content | strip_html | truncate:300 }}
-            {% else %}
-                {{ post.content | strip_html | truncate:200 }}
-            {% endif %}
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-</div>
-<hr>
-{% endfor %}
+<table>
+    <tr class="header-row">
+        <td colspan="2">第一行，合并两列</td>
+    </tr>
+    <tr>
+        <td>第二行，第一列</td>
+        <td>第二行，第二列</td>
+    </tr>
+    <tr>
+        <td>第三行，第一列</td>
+        <td>第三行，第二列</td>
+    </tr>
+    <tr>
+        <td>第四行，第一列</td>
+        <td>第四行，第二列</td>
+    </tr>
+    <tr>
+        <td>第五行，第一列</td>
+        <td>第五行，第二列</td>
+    </tr>
+    <tr>
+        <td>第六行，第一列</td>
+        <td>第六行，第二列</td>
+    </tr>
+</table>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
+</body>
+</html>
